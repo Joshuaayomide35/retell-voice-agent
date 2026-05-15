@@ -8,6 +8,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 app.post("/create-call", async (req, res) => {
+  console.log("API KEY:", RETELL_API_KEY ? "loaded" : "MISSING");
+  console.log("AGENT ID:", RETELL_AGENT_ID ? "loaded" : "MISSING");
   try {
     const response = await fetch("https://api.retellai.com/v2/create-web-call", {
       method: "POST",
@@ -19,6 +21,4 @@ app.post("/create-call", async (req, res) => {
     res.json(data);
   } catch (err) { res.status(500).json({ error: err.message }); }
 });
-app.listen(PORT, () => {
-  console.log("Server is RUNNING! Open: http://localhost:3000");
-});
+app.listen(PORT, () => console.log("Server running on port " + PORT));
