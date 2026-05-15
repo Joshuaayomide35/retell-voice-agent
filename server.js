@@ -1,8 +1,8 @@
 ﻿const express = require("express");
 const cors = require("cors");
 const app = express();
-const RETELL_API_KEY = "key_3ddb4e7897d49ad9d25a94cb6d21";
-const RETELL_AGENT_ID = "agent_3fafae826feaa70c8cd7693b02";
+const RETELL_API_KEY = process.env.RETELL_API_KEY;
+const RETELL_AGENT_ID = process.env.RETELL_AGENT_ID;
 const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
