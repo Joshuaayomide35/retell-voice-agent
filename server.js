@@ -3,7 +3,7 @@ const cors = require("cors");
 const app = express();
 const RETELL_API_KEY = "key_3ddb4e7897d49ad9d25a94cb6d21";
 const RETELL_AGENT_ID = "agent_3fafae826feaa70c8cd7693b02";
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
